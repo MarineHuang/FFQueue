@@ -27,6 +27,7 @@
 #include "utils/FFQConfig.h"
 
 #include <wx/filename.h>
+#include <wx/statbox.h>
 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQConfigEdit)

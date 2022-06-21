@@ -29,7 +29,7 @@
 #include "utils/FFQMisc.h"
 #include "utils/FFQConst.h"
 #include <wx/display.h>
-
+#include <wx/statbox.h>
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQPresetEdit)
 	#include <wx/string.h>

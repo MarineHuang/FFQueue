@@ -290,7 +290,8 @@ bool MakeKeyframeArguments(wxString &kf)
     if (s == STR_YES)
     {
         v = Str2Long(t, -1);
-        if (v >= 0) res += "-sc_threshold " + ( v == 0 ? "0" : ToStr(100-v) ) + SPACE;
+        if (v == 0) res += "-sc_threshold " + ToStr(0) + SPACE;
+        else if (v > 0) res += "-sc_threshold " + ToStr(100 - v) + SPACE;
     }
 
     //Maximum consecutive B-frames

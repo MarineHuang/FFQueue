@@ -26,7 +26,7 @@
 #include "utils/FFQConst.h"
 #include "utils/FFQConfig.h"
 #include <wx/file.h>
-
+#include <wx/textdlg.h> 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQLangEdit)
 	#include <wx/string.h>

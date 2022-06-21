@@ -23,6 +23,8 @@
 
 #include "FFQFilterEdit.h"
 
+#include <wx/statbox.h>
+
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQFilterEdit)
 	#include <wx/string.h>

@@ -26,6 +26,8 @@
 #include "utils/FFQMisc.h"
 
 #include <wx/valnum.h>
+#include <wx/statbox.h>
+#include <wx/dcclient.h>
 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQTimeEdit)

@@ -35,6 +35,7 @@
 
 #include <wx/filename.h>
 #include <wx/tooltip.h>
+#include <wx/statbox.h>
 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQJobEditAdv)

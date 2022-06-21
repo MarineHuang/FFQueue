@@ -30,6 +30,9 @@
 
 #include <wx/filename.h>
 #include <wx/ffile.h>
+#include <wx/statbox.h>
+#include <wx/dcmemory.h>
+#include <wx/dcclient.h>
 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQJobEditAdvCuts)

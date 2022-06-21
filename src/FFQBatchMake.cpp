@@ -34,6 +34,7 @@
 
 #include <wx/filename.h>
 #include <wx/dir.h>
+#include <wx/statbox.h>
 
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQBatchMake)

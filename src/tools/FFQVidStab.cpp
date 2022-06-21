@@ -31,7 +31,7 @@
 #include "../utils/FFQStreamMapping.h"
 
 #include <wx/filename.h>
-
+#include <wx/statbox.h>
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQVidStab)
 	#include <wx/string.h>

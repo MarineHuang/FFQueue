@@ -38,6 +38,7 @@
 	#include <wx/sizer.h>
 	#include <wx/stattext.h>
 	#include <wx/textctrl.h>
+	#include <wx/bmpbuttn.h>
 	//*)
 #endif
 //(*Headers(FFQJobEditAdv)
@@ -58,7 +59,6 @@
 //one input file panel / tab
 typedef struct INPUT_CTRLS
 {
-
     wxPanel *panel;
     wxTextCtrl *input;//, *itsoffset, *framerate;
     //wxFlexGridSizer *sizer;
@@ -72,7 +72,6 @@ typedef struct INPUT_CTRLS
     FFQ_CUTS cut_cfg;
     //wxCheckBox *discard_corrupt, *genpts, *igndts, *ignidx;
     FFProbeInfoParser probe;
-
 } INPUT_CTRLS, *LPINPUT_CTRLS;
 
 //Structure used to hold data for an item in the stream list

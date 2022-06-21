@@ -44,7 +44,7 @@
 
 #include <wx/filename.h>
 #include <wx/mstream.h>
-
+#include <wx/dcclient.h>
 #ifdef __WINDOWS__
     #include <windows.h>
 #else

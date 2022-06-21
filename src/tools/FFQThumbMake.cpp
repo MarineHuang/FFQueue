@@ -26,7 +26,7 @@
 #include "../utils/FFQConfig.h"
 #include "../utils/FFQMisc.h"
 #include "../utils/FFQProbing.h"
-
+#include <wx/statbox.h>
 #ifndef WX_PRECOMP
 	//(*InternalHeadersPCH(FFQThumbMake)
 	#include <wx/string.h>
