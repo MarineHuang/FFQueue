@@ -2,7 +2,7 @@
 project(FFQueue)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
+    set(CMAKE_BUILD_TYPE Release)
 endif()
 
 #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -std=c++11")
@@ -11,8 +11,8 @@ endif()
 # 使用多处理器编译
 if(WIN32)
 	if(MSVC)
-		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  /MP")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  /MP")
 		set(VS_STARTUP_PROJECT ${PROJECT_NAME})
 	endif(MSVC)
 endif(WIN32)
