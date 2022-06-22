@@ -1,0 +1,61 @@
+name: GitHubActions CI tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build-win:
+    runs-on: windows-latest
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+
+    - name: cache vcpkg packages
+      uses: pat-s/always-upload-cache@v2
+      with:
+        path: C:\Users\runneradmin\AppData\Local\vcpkg\archives
+        key: ffqueue-vcpkg-archives-${{ github.run_id }}
+        restore-keys: ffqueue-vcpkg-archives-
+
+    - name: install deps
+      run: |
+        Set-Content -Value "" -Path "C:\vcpkg\vcpkg.disable-metrics" -Force
+        
+        vcpkg.exe install --triplet x64-windows wxwidgets ffmpeg curl openssl
+        
+        # CMake has not FindFFMPEG module
+        #Copy-Item -Path C:\vcpkg\installed\x64-windows\share\ffmpeg\FindFFMPEG.cmake -Destination "C:\Program Files\CMake\share\cmake-3.23\Modules"
+
+
+    - name: configure
+      run: |
+        New-Item -Path build -ItemType directory
+        Set-Location build
+        cmake.exe '-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake' '-DVCPKG_TARGET_TRIPLET=x64-windows'  ..
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: build
+      run: |
+        Set-Location build
+        MSBuild.exe FFQueue.vcxproj -p:Configuration=Release
+
+    #- name: run tests
+    #  run: |
+    #    Set-Location build
+    #    MSBuild.exe test.vcxproj -p:Configuration=Release
+
+    - name: package
+      run: |
+        Remove-Item -Path build\Release\*.exp,build\Release\*.lib
+       
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: FFQueue-win64
+        path: build/Release

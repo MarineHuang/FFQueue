@@ -308,7 +308,8 @@ void FFQAbout::Execute()
     //Info about environment and compiler
     s = wxString::Format("%i.%i.%i", wxMAJOR_VERSION, wxMINOR_VERSION, wxRELEASE_NUMBER);
     TextCtrl->SetDefaultStyle(wxTextAttr(0x008800));
-    TextCtrl->AppendText(CRLF + CRLF + wxString::Format(ABOUT_2, s, __VERSION__));
+    //TextCtrl->AppendText(CRLF + CRLF + wxString::Format(ABOUT_2, s, __VERSION__));
+    TextCtrl->AppendText(CRLF + CRLF + wxString::Format(ABOUT_2, s, "4.8.1"));
 
     //Info about ffmpeg (if available)
     if (FFQCFG()->ffmpeg_ok)

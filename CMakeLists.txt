@@ -5,6 +5,18 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -std=c++11")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -std=c++11")
+
+# 使用多处理器编译
+if(WIN32)
+	if(MSVC)
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+		set(VS_STARTUP_PROJECT ${PROJECT_NAME})
+	endif(MSVC)
+endif(WIN32)
+
 set(source_files 
 	${CMAKE_CURRENT_SOURCE_DIR}/src/FFQAbout.cpp 
 	${CMAKE_CURRENT_SOURCE_DIR}/src/FFQApp.cpp 
@@ -109,16 +121,12 @@ add_executable(${PROJECT_NAME} WIN32
 #    PRIVATE ${CLIENT_INCLUDE_DIRS}
 #	)
 
-#target_compile_options(${PROJECT_NAME}
-#    PRIVATE "-Wall -fPIC -std=c++11"
-#	)
 	
 find_package(wxWidgets REQUIRED adv base core gl stc xml)
 include(${wxWidgets_USE_FILE})
 target_link_libraries(${PROJECT_NAME} LINK_PRIVATE ${wxWidgets_LIBRARIES})
 
 # cd ./src &&  windres.exe -ID:\ProgramFiles\vcpkg\installed\x64-windows\include  -J rc -O coff -i resource.rc -o resource.res
-# define __VERSION__
 #cmake.exe '-DCMAKE_TOOLCHAIN_FILE=D:/ProgramFiles/vcpkg/scripts/buildsystems/vcpkg.cmake' '-DVCPKG_TARGET_TRIPLET=x64-windows' ..
 
 
