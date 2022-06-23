@@ -124,6 +124,9 @@ find_package(wxWidgets REQUIRED adv base core gl stc xml)
 include(${wxWidgets_USE_FILE})
 target_link_libraries(${PROJECT_NAME} LINK_PRIVATE ${wxWidgets_LIBRARIES})
 
+find_package(ZLIB REQUIRED)
+target_link_libraries(${PROJECT_NAME} LINK_PRIVATE ${ZLIB_LIBRARIES})
+
 # cd ./src &&  windres.exe -ID:\ProgramFiles\vcpkg\installed\x64-windows\include  -J rc -O coff -i resource.rc -o resource.res
 #cmake.exe '-DCMAKE_TOOLCHAIN_FILE=D:/ProgramFiles/vcpkg/scripts/buildsystems/vcpkg.cmake' '-DVCPKG_TARGET_TRIPLET=x64-windows' ..
 
